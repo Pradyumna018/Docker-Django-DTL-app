@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Data</title>
+</head>
+<body>
+    <!-- <h1> Say my name : { { name } } </h1> -->
+
+    <h1>Cities names : </h1>
+    {% for city in cities %}
+        <h3>{{forloop.counter}} {{ city }}</h3>
+    {% endfor %}
+
+    <h3>Student Details : </h3>
+    <table border="2px" cellpadding="10px" cellspacing="0" bgcolor="yellow" style="text-align: center;border: 3px red solid;">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Place</th>
+            <th>Degree</th>
+            <th>Marks</th>
+            <th>Grade</th>
+        </tr>
+        {% for data in std_details %}
+            <tr>
+                <td>{{ data.name }}</td>
+                <td>{{ data.age }}</td>
+                <td>{{ data.place }}</td>
+                <td>{{ data.degree }}</td>
+                <td>{{ data.marks }}</td>
+                <td>{{ data.grade }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <hr>
+
+    {% for data in std_details %}
+        {% if data.marks >= 45 and data.marks <= 75 %}
+            <p>{{ data.name }} has scored {{ data.marks }}</p>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>
